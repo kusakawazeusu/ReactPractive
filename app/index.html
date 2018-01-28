@@ -4,10 +4,21 @@
         <meta charset="UTF-8">
         <title>I'm practicing react</title>
         <script src="https://cdn.jsdelivr.net/remarkable/1.6.2/remarkable.min.js"></script>
-        
+        <script>
+            const wsClient = new WebSocket("ws://127.0.0.1:9000");
+
+            wsClient.onopen = () => {
+                console.log('Connected!');
+            }
+
+            wsClient.onerror = (err) => {
+                console.log(err);
+            }
+        </script>
     </head>
 
     <body>
+        <div id="wsclient"></div>
         <div id="app"></div>
         <div id="todolist"></div>
         <div id="md"></div>

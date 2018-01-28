@@ -13,6 +13,7 @@ module.exports = {
         './app/index.jsx',
         './app/markdown.jsx',
         './app/todo.jsx',
+        './app/wsclient.jsx'
     ],
     output: {
         path: `${__dirname}/dist`,

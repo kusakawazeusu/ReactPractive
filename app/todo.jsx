@@ -17,6 +17,7 @@ class TodoApp extends React.Component {
         super(props);
         this.onChange = this.onChange.bind(this);
         this.focus = this.focus.bind(this);
+        this.pushMsg = this.pushMsg.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             items: [],
@@ -48,6 +49,17 @@ class TodoApp extends React.Component {
         this.state.items.push({text: this.state.text, id: Date.now()});
         this.setState({items: this.state.items, text: ''});
         this.focus();
+        wsClient.send(this.state.text);
+    }
+    pushMsg(msg) {
+        this.state.items.push({text: msg, id: Date.now()});
+        this.setState({items: this.state.items, text: ''});
+    }
+
+    componentDidMount() {
+        wsClient.onmessage = (e) => {
+            this.pushMsg(e.data);
+        }
     }
 }
 
