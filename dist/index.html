@@ -4,11 +4,16 @@
         <meta charset="UTF-8">
         <title>I'm practicing react</title>
         <script src="https://cdn.jsdelivr.net/remarkable/1.6.2/remarkable.min.js"></script>
-        <script src="index_bundle.js"></script>
-
+        <script>
+            var wsClient;
+            window.onbeforeunload = () => {
+                wsClient.send('terminate');
+            }
+        </script>
     </head>
 
     <body>
+        <div id="wsclient"></div>
         <div id="app"></div>
         <div id="todolist"></div>
         <div id="md"></div>

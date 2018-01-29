@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 
 require('./css/uikit.min.css');
+require('./css/index.css');
 
 class App extends React.Component {
     constructor(props) {
@@ -44,5 +45,5 @@ App.defaultProps = {
     name: 'Who?',
 }
 
-ReactDom.render(<App name="Davis" />, document.getElementById('app'));
+//ReactDom.render(<App name="Davis" />, document.getElementById('app'));
 
